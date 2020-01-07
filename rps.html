@@ -48,13 +48,25 @@
         return(vs);
     }
 
+    function score() {
+
+        if (playRound(pS, cS) == "You won. Rock beats scissors" || 
+            playRound(pS, cS) == "You won. Paper beats Rock" || 
+            playRound(pS, cS) == "You won. Scissors beats Paper") {
+                playerScore += 1
+                }
+            return (playerScore)
+            }
+     
     let player = prompt("Rock, Paper, Scissor. 1... 2... 3...");
     const pS = player.toLowerCase();
     const cS = computerPlay();
+    let playerScore = 0
         
         alert(cS)
         alert(playRound(pS, cS))
-      
+        alert("You have won " + score() + " times so far.")
+           
     </script>
 
 </body>
