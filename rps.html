@@ -9,7 +9,52 @@
 <body>
     
     <script>
-    
+
+    function computerPlay() { 
+            let select = ["Rock", "Paper", "Scissors"]
+            let rand = select[Math.floor(Math.random() * select.length)];
+            return rand
+        }
+
+    function playRound(pS, cS) {
+
+        let vs;
+
+        if (pS == "rock") {
+            if (cS == "Paper") {
+                vs = "You lose. Paper beats Rock"
+            } else if (cS == "Scissors") {
+                vs = "You won. Rock beats scissors" 
+            } else if (cS == "Rock") {
+                vs = "That's a draw"
+            }
+        } else if (pS == "paper") {
+            if (cS == "Scissors") {
+                vs = "You lose. Scissors beats Paper"
+            } else if (cS == "Rock") {
+                vs = "You won. Paper beats Rock" 
+            } else if (cS == "Paper") {
+                vs = "That's a draw"
+            } 
+        } else if (pS == "scissors") {
+            if (cS == "Rock") {
+                vs = "You lose. Rock beats scissors"
+            } else if (cS == "Paper") {
+                vs = "You won. Scissors beats Paper" 
+            } else if (cS == "Scissors") {
+                vs = "That's a draw"
+            } 
+        }
+        return(vs);
+    }
+
+    let player = prompt("Rock, Paper, Scissor. 1... 2... 3...");
+    const pS = player.toLowerCase();
+    const cS = computerPlay();
+        
+        alert(cS)
+        alert(playRound(pS, cS))
+      
     </script>
 
 </body>
