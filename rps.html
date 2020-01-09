@@ -32,31 +32,18 @@
     // Plays a single round and gives the round winner
     function playRound(playerSelection, computerSelection) {
 
-        if (playerSelection === "rock") {
-            if (computerSelection == "paper") {
-                vs = "You lose, " + computerSelection + " beats " + playerSelection
-            } else if (computerSelection == "scissors") {
+        if (playerSelection == "rock" && computerSelection == "scissors" ||
+            playerSelection == "scissors" && computerSelection == "paper" ||
+            playerSelection == "paper" && computerSelection == "rock"){
                 vs = "You won, " + playerSelection + " beats " + computerSelection
-            } else if (computerSelection == "rock") {
+            
+        } else if (playerSelection == computerSelection) {
                 vs = "That's a draw"
-            }
-        } else if (playerSelection === "paper") {
-            if (computerSelection == "scissors") {
+             
+        } else {
                 vs = "You lose, " + computerSelection + " beats " + playerSelection
-            } else if (computerSelection == "rock") {
-                vs = "You won, " + playerSelection + " beats " + computerSelection
-            } else if (computerSelection == "paper") {
-                vs = "That's a draw"
-            } 
-        } else if (playerSelection === "scissors") {
-            if (computerSelection == "rock") {
-                vs = "You lose, " + computerSelection + " beats " + playerSelection
-            } else if (computerSelection == "paper") {
-                vs = "You won, " + playerSelection + " beats " + computerSelection
-            } else if (computerSelection == "scissors") {
-                vs = "That's a draw"
-            } 
         }
+        
         console.log(playerSelection + " vs " + computerSelection)
         return(vs);
     }
@@ -64,9 +51,9 @@
     // Records both scores
     function score() {
 
-        if (vs == ("You won, rock beats scissors" || 
-            "You won, paper beats rock" || 
-            "You won, scissors beats paper")) {
+        if (vs == "You won, rock beats scissors" || 
+            vs == "You won, scissors beats paper" || 
+            vs == "You won, paper beats rock") {
                 playerScore += 1;
         
         } else if (vs == "That's a draw") {
