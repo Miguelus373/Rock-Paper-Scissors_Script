@@ -4,68 +4,126 @@
 
 <head>
     <title>Rock Paper Scissors</title>
+    <meta charset="UTF-8"/>
 </head>
 
 <body>
     
     <script>
 
-    function computerPlay() { 
-            let select = ["Rock", "Paper", "Scissors"]
-            let rand = select[Math.floor(Math.random() * select.length)];
-            return rand
+    // Variables
+    let playerScore = 0;
+    let computerScore = 0;
+    let vs;
+
+    // Asks the player for his/her selection
+    function ask() {
+            let choice = prompt("Rock, paper or scissors?").toLocaleLowerCase()
+            return(choice)
         }
 
-    function playRound(pS, cS) {
+    // Randomly gives computer's selection
+    function computerPlay() { 
+            let select = ["rock", "paper", "scissors"]
+            let random = select[Math.floor(Math.random() * 3)];
+            return random
+        } 
 
-        let vs;
+    // Plays a single round and gives the round winner
+    function playRound(playerSelection, computerSelection) {
 
-        if (pS == "rock") {
-            if (cS == "Paper") {
-                vs = "You lose. Paper beats Rock"
-            } else if (cS == "Scissors") {
-                vs = "You won. Rock beats scissors" 
-            } else if (cS == "Rock") {
+        if (playerSelection === "rock") {
+            if (computerSelection == "paper") {
+                vs = "You lose, " + computerSelection + " beats " + playerSelection
+            } else if (computerSelection == "scissors") {
+                vs = "You won, " + playerSelection + " beats " + computerSelection
+            } else if (computerSelection == "rock") {
                 vs = "That's a draw"
             }
-        } else if (pS == "paper") {
-            if (cS == "Scissors") {
-                vs = "You lose. Scissors beats Paper"
-            } else if (cS == "Rock") {
-                vs = "You won. Paper beats Rock" 
-            } else if (cS == "Paper") {
+        } else if (playerSelection === "paper") {
+            if (computerSelection == "scissors") {
+                vs = "You lose, " + computerSelection + " beats " + playerSelection
+            } else if (computerSelection == "rock") {
+                vs = "You won, " + playerSelection + " beats " + computerSelection
+            } else if (computerSelection == "paper") {
                 vs = "That's a draw"
             } 
-        } else if (pS == "scissors") {
-            if (cS == "Rock") {
-                vs = "You lose. Rock beats scissors"
-            } else if (cS == "Paper") {
-                vs = "You won. Scissors beats Paper" 
-            } else if (cS == "Scissors") {
+        } else if (playerSelection === "scissors") {
+            if (computerSelection == "rock") {
+                vs = "You lose, " + computerSelection + " beats " + playerSelection
+            } else if (computerSelection == "paper") {
+                vs = "You won, " + playerSelection + " beats " + computerSelection
+            } else if (computerSelection == "scissors") {
                 vs = "That's a draw"
             } 
         }
+        console.log(playerSelection + " vs " + computerSelection)
         return(vs);
     }
 
+    // Records both scores
     function score() {
 
-        if (playRound(pS, cS) == "You won. Rock beats scissors" || 
-            playRound(pS, cS) == "You won. Paper beats Rock" || 
-            playRound(pS, cS) == "You won. Scissors beats Paper") {
-                playerScore += 1
-                }
-            return (playerScore)
-            }
-     
-    let player = prompt("Rock, Paper, Scissor. 1... 2... 3...");
-    const pS = player.toLowerCase();
-    const cS = computerPlay();
-    let playerScore = 0
+        if (vs == ("You won, rock beats scissors" || 
+            "You won, paper beats rock" || 
+            "You won, scissors beats paper")) {
+                playerScore += 1;
         
-        alert(cS)
-        alert(playRound(pS, cS))
-        alert("You have won " + score() + " times so far.")
+        } else if (vs == "That's a draw") {
+                playerScore += 0;
+                computerScore += 0;
+        
+        } else {
+            computerScore += 1;
+        }
+    
+    console.log("Player wins: " + playerScore + 
+    " | Cpu wins: " + computerScore)
+    }
+
+    // Gives a winner according to scores
+    function winner() {
+        if (computerScore > playerScore) {
+           return("The match is over. Cpu won this match!")
+       } else if (playerScore > computerScore) {
+           return("The match is over. You won this match!")
+       } else {
+           return("The match is over. We have no winner today")
+       }
+    }
+
+    // Plays 5 rounds and gives the match winner at the end
+    function game() {
+
+       console.log(playRound(ask(), computerPlay()));
+       score();       
+       console.log(playRound(ask(), computerPlay())); 
+       score()       
+       console.log(playRound(ask(), computerPlay())); 
+       score()       
+       console.log(playRound(ask(), computerPlay()));
+       score()
+       console.log(playRound(ask(), computerPlay()));
+       score()       
+
+       return(winner())
+    }
+
+    //Restarts the game
+    function reset() {
+        let again = prompt("Wanna play again?").toLocaleLowerCase();
+
+        if (again == "yes") {
+            playerScore = 0;
+            computerScore = 0;
+            return(game())
+        } else {
+            return("Alright then. Bye")
+        }
+    }
+
+    console.log(game())
+    console.log(reset())
            
     </script>
 
