@@ -1,6 +1,7 @@
 // Variables
 const general = document.querySelector('#general')
 const buttons = document.querySelector('#buttons')
+const results = document.querySelector('#results')
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
@@ -10,41 +11,54 @@ let playerScore = 0;
 let computerScore = 0;
 let vs;
 
-let div = document.createElement('div');
-    div.classList.add('results')
-
 let competition = document.createElement('p');
     competition.classList.add('vs')
+    competition.textContent = "Rules are simple:"
 
 let resultsPara = document.createElement('p');
     resultsPara.classList.add('round')
+    resultsPara.textContent = "1) Rock beats scissors"
 
 let win = document.createElement('p');
     win.classList.add('win');
+    win.textContent = "2) Scissors beat paper"
 
 let winner = document.createElement('p');
     winner.classList.add('winner');
+    winner.textContent = "3) Paper beats rock"
 
 rock.addEventListener('click', function () {
-    dataLog()
+    if (playerScore < 5 && computerScore < 5) {
+        resultsPara.textContent = playRound("Rock", computerPlay());
+        win.textContent = score();
+        winner.textContent = matchWinner();
+    }
 });
 
 paper.addEventListener('click', function () {
-    dataLog()
+    if (playerScore < 5 && computerScore < 5) {
+        resultsPara.textContent = playRound("Paper", computerPlay());
+        win.textContent = score();
+        winner.textContent = matchWinner();
+    }
 });
 
 scissors.addEventListener('click', function () {
-    dataLog()
+    if (playerScore < 5 && computerScore < 5) {
+        resultsPara.textContent = playRound("Scissors", computerPlay());
+        win.textContent = score();
+        winner.textContent = matchWinner();
+    }
 });
 
 reset.addEventListener('click', () => {
     playerScore = 0;
     computerScore = 0;
     
-    competition.textContent = "";
-    resultsPara.textContent = "";
-    win.textContent = "";
-    winner.textContent = "";
+    competition.textContent = "Rules are simple:"
+    resultsPara.textContent = "1) Rock beats scissors";
+    win.textContent = "2) Scissors beat paper";
+    winner.textContent = "3) Paper beats rock";
 })
 
 // Randomly gives computer's selection
@@ -103,17 +117,7 @@ function matchWinner() {
 }
 }
 
-//Logs all the results
-function dataLog() {
-    if (playerScore < 5 && computerScore < 5) {
-        resultsPara.textContent = playRound("Rock", computerPlay());
-        win.textContent = score();
-        winner.textContent = matchWinner();
-    }    
-}
-
-div.appendChild(competition);
-div.appendChild(resultsPara);
-div.appendChild(win);
-div.appendChild(winner);
-general.appendChild(div);
+results.appendChild(competition);
+results.appendChild(resultsPara);
+results.appendChild(win);
+results.appendChild(winner);

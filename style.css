@@ -1,0 +1,62 @@
+h1 {
+  text-align: center;
+  color: whitesmoke;
+  text-shadow: 1px 1px 5px yellow;
+}
+
+#buttons {
+  color: red;  
+  cursor: pointer;
+  text-align: center;
+  margin-top: 40px;
+  position: relative;
+}
+
+.rock, .paper, .scissors{
+  border: 3px solid gray;
+  border-radius: 100px;
+  box-shadow: 0px 0px 18px darkgray;
+  margin: 60px 22px;
+}
+
+.rock:hover, .paper:hover, .scissors:hover {
+  box-shadow: 0px 0px 20px lightcyan;
+  border-color: rgb(157, 164, 170);
+}
+
+.rock {
+  background-color: rgb(230, 77, 77)
+}
+
+.paper {
+  background-color: lightblue
+}
+
+.scissors {
+  background-color: rgb(238, 176, 41)
+}
+
+.rock:active, .paper:active, .scissors:active {
+  scale: 0.8;
+}
+
+body {
+  background-color: darkslategray;
+}
+
+p {
+  color: lightcyan;
+  font-size: 26px;
+  text-shadow: 2px 2px 5px lightseagreen
+  }
+
+.reset {
+  position: fixed;
+  top: 90px;
+  right: 80px
+  }
+
+#results {
+  text-align: center;
+  margin-top: 50px
+}
