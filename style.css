@@ -4,39 +4,44 @@ h1 {
   text-shadow: 1px 1px 5px yellow;
 }
 
-#buttons {
-  color: red;  
-  cursor: pointer;
+#rules {
   text-align: center;
-  margin-top: 40px;
-  position: relative;
+  line-height: 60px;
+  margin-top: 70px;
+}
+
+#buttons { 
+  cursor: pointer;
+  left: 385px;
+  top: 380px;
+  position: fixed;
+  visibility: hidden;
+  transition: 0.6s;
 }
 
 .rock, .paper, .scissors{
-  border: 3px solid gray;
-  border-radius: 100px;
+  border-radius: 70px;
   box-shadow: 0px 0px 18px darkgray;
   margin: 60px 22px;
 }
 
 .rock:hover, .paper:hover, .scissors:hover {
   box-shadow: 0px 0px 20px lightcyan;
-  border-color: rgb(157, 164, 170);
 }
 
 .rock {
-  background-color: rgb(230, 77, 77)
+  background-color:  	#F5654D
 }
 
 .paper {
-  background-color: lightblue
+  background-color:  	#5FBDBC
 }
 
 .scissors {
-  background-color: rgb(238, 176, 41)
+  background-color: #F7BE3B
 }
 
-.rock:active, .paper:active, .scissors:active {
+.rock:active, .paper:active, .scissors:active, .reset:active {
   scale: 0.8;
 }
 
@@ -44,19 +49,69 @@ body {
   background-color: darkslategray;
 }
 
-p {
+p, #rules{
   color: lightcyan;
   font-size: 26px;
-  text-shadow: 2px 2px 5px lightseagreen
+  text-shadow: 2px 2px 5px lightseagreen;
   }
 
-.reset {
-  position: fixed;
-  top: 90px;
-  right: 80px
+#reset {
+  visibility: hidden;
+  position: absolute;
+  left: 605px;
+  top: 440px
   }
+
+.playerScore {
+  position: fixed;
+  top:  200px;
+  left: 350px
+}
+
+.cpuScore {
+  position: fixed;
+  top:  200px;
+  right: 350px
+}
 
 #results {
   text-align: center;
   margin-top: 50px
+}
+
+#cpuRock, #cpuPaper, #cpuScissors {
+  position: absolute;
+  transition: 0.8s;
+  left: 685px;
+  top: 250px;
+}
+
+#border {
+  border: 4px solid lightblue;
+  box-shadow: 0px 0px 10px black;
+  padding: 90px 100px;
+  position: fixed;
+  left: 580px;
+  top: 130px;
+  background-color: darkcyan;
+  border-radius: 20px;
+  visibility: hidden;
+}
+
+#playButtons {
+  text-align: center;
+}
+
+#start, #reset {
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px black;
+  cursor: pointer;
+}
+
+#start {
+  margin-top: 30px
+}
+
+#start:hover, #reset:hover {
+  box-shadow: 0px 0px 15px lightcyan;
 }

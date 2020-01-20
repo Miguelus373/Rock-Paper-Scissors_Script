@@ -12,18 +12,42 @@
     
     <div id="general">
 
-        <h1>Welcome to Rock Paper Scissors</h1>
+        <h1 id="title">Welcome to Rock Paper Scissors</h1>
+
+        <div id="rules">
+            
+            <p>
+            Rules are simple:
+            <ol>
+                <li>Rock breaks scissors</li>
+                <li>Scissors cut paper</li>
+                <li>Paper covers rock</li>
+            </ol>
+            </p>
+
+        </div>
 
         <div id="results"></div>
             
-        
         <div id="buttons">
-            <img src="images/rock.png" width="150px" height="143px" alt="Rock" class="rock">
-            <img src="images/paper.png" width="150px" height="143px" alt="Paper" class="paper">
-            <img src="images/scissors.png" width="150px" height="143px" alt="Scissors" class="scissors">
+            <img src="images/rock.png" width="150px" height="140px" alt="Rock" class="rock">
+            <img src="images/paper.png" width="150px" height="140px" alt="Paper" class="paper">
+            <img src="images/scissors.png" width="150px" height="140px" alt="Scissors" class="scissors">
         </div> 
 
-        <button class="reset">Restart</button>
+        <div id="playButtons">
+            <img src="images/play.png" width="140px" height="52px" id="start" alt="Start">
+            <img src="images/replay.png" width="155px" height="52px" id= "reset" alt="Play again">
+        </div>
+        
+        <div id="computer">
+            
+            <p id="border"></p>
+            <img src="images/rock.png" width="0.15px" height="0.14px" alt="CPU-Rock" id="cpuRock">
+            <img src="images/paper.png" width="0.15px" height="0.14px" alt="CPU-Paper" id="cpuPaper">
+            <img src="images/scissors.png" width="0.15px" height="0.14px" alt="CPU-Scissors" id="cpuScissors">
+
+        </div>
 
     </div>
     
